@@ -78,7 +78,7 @@ class MyApp extends AppMVC {
               builder: (context, Setting _setting, _) {
                 return MaterialApp(
                   title: _setting.appName,
-                  initialRoute: '/Splash',
+                  initialRoute: '/Login',
                   onGenerateRoute: RouteGenerator.generateRoute,
                   debugShowCheckedModeBanner: false,
                   locale: _setting.mobileLanguage.value,

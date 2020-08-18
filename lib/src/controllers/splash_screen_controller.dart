@@ -21,30 +21,30 @@ class SplashScreenController extends ControllerMVC {
   @override
   void initState() {
     final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print("splash screen onMessage: $message");
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print("splash screen onLaunch: $message");
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print(" splash screen  onResume: $message");
-      },
-      onBackgroundMessage: myBackgroundMessageHandler,
-    );
-    settingRepo.setting.addListener(() {
-      if (settingRepo.setting.value.appName != null && settingRepo.setting.value.mainColor != null) {
-        progress.value["Setting"] = 50;
-        progress.notifyListeners();
-      }
-    });
-    currentUser.addListener(() {
-      if (currentUser.value.auth != null) {
-        progress.value["User"] = 50;
-        progress.notifyListeners();
-      }
-    });
+    // _firebaseMessaging.configure(
+    //   onMessage: (Map<String, dynamic> message) async {
+    //     print("splash screen onMessage: $message");
+    //   },
+    //   onLaunch: (Map<String, dynamic> message) async {
+    //     print("splash screen onLaunch: $message");
+    //   },
+    //   onResume: (Map<String, dynamic> message) async {
+    //     print(" splash screen  onResume: $message");
+    //   },
+    //   onBackgroundMessage: myBackgroundMessageHandler,
+    // );
+    // settingRepo.setting.addListener(() {
+    //   if (settingRepo.setting.value.appName != null && settingRepo.setting.value.mainColor != null) {
+    //     progress.value["Setting"] = 50;
+    //     progress.notifyListeners();
+    //   }
+    // });
+    // currentUser.addListener(() {
+    //   if (currentUser.value.auth != null) {
+    //     progress.value["User"] = 50;
+    //     progress.notifyListeners();
+    //   }
+    // });
     Timer(Duration(seconds: 20), () {
       scaffoldKey?.currentState?.showSnackBar(SnackBar(
         content: Text(S.current.verify_your_internet_connection),
